@@ -1,0 +1,72 @@
+/*
+ in the user-message.css
+*/
+
+.apmui-main { display: flex; flex: 2 1 auto; background-color: #042b4e; }
+.apmui-content {
+  display: block;
+  width: 50%;
+  min-height: 200px;
+  max-width: 600px;
+  box-sizing: border-box;
+  align-self: flex-start;
+  margin: 80px auto 20px auto;
+  padding: 50px 80px 80px;
+  background: #aaaaaa;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 25;
+  color: #000d19;
+  text-align:left;
+  left:-5px; top: -5px;
+  font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;  
+}
+.apmui-button {
+  display: inline-block;
+  height: 40px;
+  max-width: 400px;
+  min-width: 140px;
+  padding: 1px 6px;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 36px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  background-color: #399a8b;
+  border-color: #399a8b;
+  color: white;
+  cursor: pointer;
+}
+.apmui-footer { height: 0px; min-height: 0px; visibility: hidden;}
+
+/*
+ in the user-message.js
+*/
+define(["require", "exports", "tslib", "module", "apmui/page/messageBox/View"], function (require, exports, tslib_1, module, View_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    requirejs.config({
+        map: {
+            'apmui/master/View': {
+                'apmui/page/messageBox/View': module.id,
+            },
+        },
+    });
+    var CustomLogonView = /** @class */ (function (_super) {
+        tslib_1.__extends(CustomLogonView, _super);
+        function CustomLogonView() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        CustomLogonView.prototype.componentDidMount = function () {
+            /*_super.prototype.componentDidMount.call(this);*/
+            document.getElementsByClassName("apmui-content")[0].getElementsByTagName("h2")[0].innerHTML = "<cr>Department of Defense</cr><br><cr>Notice and Consent Banner</cr>";
+            document.getElementsByClassName("apmui-content")[0].getElementsByTagName("p")[0].innerHTML = "You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only. By using this IS (which includes any device attached to this IS), you consent to the following conditions:<li>The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.<li>At any time, the USG may inspect and seize data stored on this IS.<li>Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.<li>This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.<li>Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.";        };
+        return CustomLogonView;
+    }(View_1.default));
+    exports.default = CustomLogonView;
+});
